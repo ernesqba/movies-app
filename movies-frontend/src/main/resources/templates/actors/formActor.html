@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>App de películas</title>
+        <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    </head>
+<body>
+
+<div class="container">
+    <h2 th:text="${title}"
+        class="text-secondary border border-success border-top-0 border-left-0 border-right-0"></h2>
+    <form th:action="@{/actors/save/}" method="post" th:object="${actor}">
+        <div th:if="${#fields.hasErrors('*')}" class='alert alert-danger' role='alert'>
+            Por favor corrija los siguientes errores:
+            <ul>
+                <li th:each="err : ${#fields.errors('*')}" th:text="${err}"/>
+            </ul>
+        </div>
+        <div class="mb-3">
+            <label for="name" class="form-label">Nombre</label>
+            <input type="text" class="form-control" th:field="*{name}" id="name" name="name"
+                   placeholder="Escriba el nombre del actor" required="required">
+        </div>
+        <div class="mb-3">
+            <label for="birthDate" class="form-label">Año</label>
+            <input type="datetime" class="form-control" th:field="*{birthDate}" id="birthDate" name="birthDate"
+                   placeholder="Escriba la fecha de nacimiento del actor" required="required">
+        </div>
+        <div class="mb-3">
+            <label for="birthCountry" class="form-label">Nacionalidad</label>
+            <input type="text" class="form-control" th:field="*{birthCountry}" id="birthCountry" name="birthCountry"
+                   placeholder="Escriba la nacionalidad del actor" required="required">
+        </div>
+        <button type="submit" class="btn btn-dark">Guardar</button>
+        <input type="hidden" th:field="*{id}" />
+    </form>
+    <hr>
+    <a class="btn btn-primary" role="button" th:href="@{/}">Ir a Inicio</a>
+</div>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script th:src="@{/js/bootstrap.min.js}"></script>
+
+</body>
+</html>
