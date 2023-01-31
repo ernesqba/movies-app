@@ -1,0 +1,13 @@
+FROM openjdk:17-jdk-slim
+
+# Set the working directory
+WORKDIR /app
+
+# Copy the compiled code from the local directory
+COPY . .
+
+# Expose the port that the application runs on
+EXPOSE 3000
+
+# Run the application
+CMD ["java","-cp","/app/target/classes:/app/target/dependency/*","uah.es.moviesbackend.MoviesBackendApplication"]

@@ -20,7 +20,7 @@ public class MoviesServiceImpl implements IMoviesService {
     @Autowired
     RestTemplate template;
 
-    String url = "http://localhost:3000/movies";
+    String url = System.getenv("BACKEND_URL") + "/movies";
 
     @Override
     public Page<Movie> findAll(Pageable pageable) {

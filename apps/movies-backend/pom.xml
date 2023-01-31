@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>uah.es</groupId>
-	<artifactId>movies-backend</artifactId>
+	<artifactId>movies-api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>movies-backend</name>
-	<description>Backend for movies app</description>
+	<name>movies-api</name>
+	<description>API for movies app</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>

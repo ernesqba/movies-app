@@ -20,7 +20,7 @@ public class ActorsServiceImpl implements IActorsService {
     @Autowired
     RestTemplate template;
 
-    String url = "http://localhost:3000/actors";
+    String url = System.getenv("BACKEND_URL") + "/actors";
 
     @Override
     public Page<Actor> findAll(Pageable pageable) {

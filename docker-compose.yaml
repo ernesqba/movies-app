@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: ./apps/movies-frontend
+      dockerfile: Dockerfile
+    ports:
+      - "4000:4000"
+    environment:
+      - PORT=4000
+      - BACKEND_URL=http://backend:3000
+    depends_on:
+      - backend
+
+  backend:
+    build:
+      context: ./apps/movies-backend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - DB_CONNECTION_URL=jdbc:mysql://db:3306/movies_db?useSSL=false&serverTimezone=Europe/Madrid&allowPublicKeyRetrieval=true
+      - DB_USER=root
+      - DB_PASS=root
+    depends_on:
+      - db-movies
+
+  db-movies:
+    image: mysql:8.0
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=movies_db
+    volumes:
+      - db-movies-data:/var/lib/mysql
+      - ./db-movies-scripts:/docker-entrypoint-initdb.d
+
+volumes:
+  db-movies-data:
