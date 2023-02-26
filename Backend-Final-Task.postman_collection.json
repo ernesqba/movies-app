@@ -1,0 +1,587 @@
+{
+	"info": {
+		"_postman_id": "74452b4c-a83f-4b68-a388-57c45305df3c",
+		"name": "Backend-Final-Task",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9498897"
+	},
+	"item": [
+		{
+			"name": "Movies",
+			"item": [
+				{
+					"name": "Create movie",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 0,\n    \"title\": \"title\",\n    \"year\": 2011,\n    \"length\": 120,\n    \"country\": \"Spain\",\n    \"directedBy\": \"Robert A.\",\n    \"genre\": \"action\",\n    \"synopsis\": \"synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis \",\n    \"image\": \"http://localhost:3000\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/movies",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get movies",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/movies",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get movies by title",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"title\",\n    \"year\": 2010,\n    \"length\": 140,\n    \"country\": \"Spain\",\n    \"directedBy\": \"Robert A.\",\n    \"genre\": \"comedy\",\n    \"synopsis\": \"synopsis\",\n    \"image\": \"http://localhost:3000\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/movies/name/ti",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"movies",
+								"name",
+								"ti"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get movies by genre",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"title\",\n    \"year\": 2010,\n    \"length\": 140,\n    \"country\": \"Spain\",\n    \"directedBy\": \"Robert A.\",\n    \"genre\": \"comedy\",\n    \"synopsis\": \"synopsis\",\n    \"image\": \"http://localhost:3000\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/movies/genre/action",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"movies",
+								"genre",
+								"action"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get movies by actor name",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"title\",\n    \"year\": 2010,\n    \"length\": 140,\n    \"country\": \"Spain\",\n    \"directedBy\": \"Robert A.\",\n    \"genre\": \"comedy\",\n    \"synopsis\": \"synopsis\",\n    \"image\": \"http://localhost:3000\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/movies/actor/rober",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"movies",
+								"actor",
+								"rober"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get movies by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"title\",\n    \"year\": 2010,\n    \"length\": 140,\n    \"country\": \"Spain\",\n    \"directedBy\": \"Robert A.\",\n    \"genre\": \"comedy\",\n    \"synopsis\": \"synopsis\",\n    \"image\": \"http://localhost:3000\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/movies/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"movies",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update movie",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 2,\n    \"title\": \"title 3\",\n    \"year\": 2011,\n    \"length\": 120,\n    \"country\": \"Spain\",\n    \"directedBy\": \"Robert A.\",\n    \"genre\": \"action\",\n    \"synopsis\": \"synopsis\",\n    \"image\": \"http://localhost:3000\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/movies",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete movie",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 2,\n    \"title\": \"title 3\",\n    \"year\": 2011,\n    \"length\": 120,\n    \"country\": \"Spain\",\n    \"directedBy\": \"Robert A.\",\n    \"genre\": \"action\",\n    \"synopsis\": \"synopsis\",\n    \"image\": \"http://localhost:3000\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/movies/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"movies",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Actors",
+			"item": [
+				{
+					"name": "Post actor",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Tom Hanks\",\n    \"birthDate\": \"1960-08-28\",\n    \"birthCountry\": \"USA\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/actors",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get actors",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/actors",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get actors by name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/actors/name/o",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"actors",
+								"name",
+								"o"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get actor by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/actors/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"actors",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update actor",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 2,\n    \"name\": \"Robert De Niro\",\n    \"birthDate\": \"1964-12-02\",\n    \"birthCountry\": \"USA\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/actors",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete actor",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 2,\n    \"name\": \"Robert De Niro\",\n    \"birthDate\": \"1964-12-02\",\n    \"birthCountry\": \"USA\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/actors/2",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"actors",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add actor to movie",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/actors/cast/1/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"actors",
+								"cast",
+								"1",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Get users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3001/users",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get user by username",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3001/users/username/ernesqba",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"users",
+								"username",
+								"ernesqba"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Critics",
+			"item": [
+				{
+					"name": "Get critics",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3001/critics",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"critics"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get critic by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3001/critics/14",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"critics",
+								"14"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get critics by user id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3001/critics/user/11",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"critics",
+								"user",
+								"11"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get critics by movie id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3001/critics/movie/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"critics",
+								"movie",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create critic",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"rating\": 2,\n   \"opinion\": \"opinion\",\n   \"user\": {\n       \"id\": 11\n   },\n   \"moviesId\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3001/critics",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"critics"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete critic",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"rating\": 2,\n   \"opinion\": \"opinion\",\n   \"user\": {\n       \"id\": 11\n   },\n   \"moviesId\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3001/critics/13",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"critics",
+								"13"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
