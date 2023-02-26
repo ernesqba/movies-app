@@ -14,6 +14,7 @@ public class Movie {
     private String synopsis;
     private String image;
     private List<Actor> actors;
+    private List<Critic> critics;
 
     public Integer getId() {
         return id;
@@ -95,15 +96,19 @@ public class Movie {
         this.actors = actors;
     }
 
-    public void addActor(Actor actor) {
-        if (actor != null) {
-            getActors().add(actor);
-        }
+    public List<Critic> getCritics() {
+        return critics;
     }
 
-    public void removeActor(Actor actor) {
-        if (actor != null) {
-            getActors().remove(actor);
-        }
+    public void setCritics(List<Critic> critics) {
+        this.critics = critics;
+    }
+
+    public double getCriticAvg() {
+        double avg = 0;
+        for (Critic critic : this.critics)
+            avg += critic.getRating();
+        avg /= this.critics.size();
+        return avg;
     }
 }

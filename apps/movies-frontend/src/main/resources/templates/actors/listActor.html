@@ -29,8 +29,8 @@
                     <td th:text="${format.format(actor.birthDate)}"></td>
                     <td th:text="${actor.birthCountry}"></td>
                     <td>
-                        <a th:href="@{/actors/update/{id}  (id=${actor.id})  }" th:text="'editar'" class="btn btn-success btn-sm" role="button" title="Editar la película."><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>
-                        <a th:href="@{/actors/delete/{id}  (id=${actor.id})   }" th:text="'borrar'" onclick="return confirm('¿Estas seguro?')" class="btn btn-danger btn-sm" role="button" title="Eliminar la película."><i class="fas fa-trash" aria-hidden="true"></i></a>
+                        <a th:href="@{/actors/update/{id}  (id=${actor.id})  }" th:text="'editar'" class="btn btn-success btn-sm" role="button" title="Editar la película."><i class="fas fa-pencil-alt" aria-hidden="true" sec:authorize="hasRole('ROLE_ADMIN')"></i></a>
+                        <a th:href="@{/actors/delete/{id}  (id=${actor.id})   }" th:text="'borrar'" onclick="return confirm('¿Estas seguro?')" class="btn btn-danger btn-sm" role="button" title="Eliminar la película."><i class="fas fa-trash" aria-hidden="true" ></i></a>
                     </td>
                 </tr>
 

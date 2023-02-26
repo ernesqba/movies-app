@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html
+  xmlns:th="http://www.thymeleaf.org"
+  lang="es"
+  xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <title>App de películas</title>
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <h2 th:text="${title}" class="card-header"></h2>
+        <div class="card-body">
+          <div th:if="${msg != null}" class="alert alert-success" th:text="${msg}" role="alert"></div>
+          <div th:if="${msga != null}" class="alert alert-danger" th:text="${msga}" role="alert"></div>
+          <h4 class="card-title">
+            <a th:href="@{/critics/new}" class="btn btn-primary btn-xs">Crear crítica nueva</a>
+          </h4>
+          <table class="table table-hover">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">Identificador</th>
+                <th scope="col">Valoración</th>
+                <th scope="col">Nota</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Título de la película</th>
+                <th scope="col">Nombre del crítico</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr th:each="critic : ${criticList}">
+                <td>
+                  <button
+                    class="btn btn-primary btn-xs"
+                    th:text="${critic.id}"
+                  ></button>
+                </td>
+                <td th:text="${critic.rating}"></td>
+                <td th:text="${critic.opinion}"></td>
+                <td th:text="${critic.date}"></td>
+                <td th:text="${critic.getMovie().getTitle()}"></td>
+                <td th:text="${critic.getUser().getUsername()}"></td>
+                <td sec:authorize="hasRole('ROLE_ADMIN')">
+                  <a
+                    th:href="@{/critics/delete/{id}  (id=${critic.id})   }"
+                    th:text="'borrar'"
+                    onclick="return confirm('¿Estas seguro?')"
+                    class="btn btn-danger btn-sm"
+                    role="button"
+                    title="Eliminar la crítica."
+                    ><i class="fas fa-trash" aria-hidden="true"></i
+                  ></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <nav th:replace="paginator-nav :: paginator"></nav>
+        </div>
+      </div>
+      <hr />
+      <a class="btn btn-primary" role="button" th:href="@{/home/}">Ir a Inicio</a>
+    </div>
+    <!-- /container -->
+
+    <!-- Bootstrap core JavaScript
+================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+  </body>
+</html>

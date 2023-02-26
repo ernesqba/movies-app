@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>App de películas</title>
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+    <h2 th:text="${title}"
+        class="text-secondary border border-success border-top-0 border-left-0 border-right-0"></h2>
+    <form th:action="@{/critics/save}" method="post" th:object="${critic}">
+        <div th:if="${#fields.hasErrors('*')}" class='alert alert-danger' role='alert'>
+            Por favor corrija los siguientes errores:
+            <ul>
+                <li th:each="err : ${#fields.errors('*')}" th:text="${err}"/>
+            </ul>
+        </div>
+        <div class="mb-3">
+            <label for="rating" class="form-label">Valoración</label>
+            <input type="number" class="form-control" th:field="*{rating}" id="rating" name="rating"
+                   placeholder="Introduzca la valoración de la película" required="required" min="1" max="10">
+        </div>
+        <div class="mb-3">
+            <label for="opinion" class="form-label">Nota</label>
+            <input type="text" class="form-control" th:field="*{opinion}" id="opinion" name="opinion"
+                   placeholder="Escriba la nota de la película" required="required">
+        </div>
+        <div class="mb-3">
+            <label for="moviesId" class="form-label">Película</label>
+            <select class="form-select" th:field="*{moviesId}" name="moviesId" id="moviesId">
+                <option th:each="movie : ${movies}" th:value="${movie.getId()}" th:text="${movie.getTitle()}"></option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-dark">Guardar</button>
+        <input type="hidden" th:field="*{id}"/>
+    </form>
+    <hr>
+    <a class="btn btn-primary" role="button" th:href="@{/home/}">Ir a Inicio</a>
+</div>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script th:src="@{/js/bootstrap.min.js}"></script>
+
+</body>
+</html>

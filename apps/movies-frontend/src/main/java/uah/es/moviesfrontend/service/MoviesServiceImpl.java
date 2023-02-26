@@ -20,11 +20,17 @@ public class MoviesServiceImpl implements IMoviesService {
     @Autowired
     RestTemplate template;
 
-    String url = System.getenv("BACKEND_URL") + "/movies";
+    String url = System.getenv("MOVIES_API_URL") + "/movies";
+
+    @Override
+    public Movie[] findAll () {
+        Movie[] movies = template.getForObject(url, Movie[].class);
+        return movies;
+    }
 
     @Override
     public Page<Movie> findAll(Pageable pageable) {
-        Movie[] movies = template.getForObject(url, Movie[].class);
+        Movie[] movies = this.findAll();
         List<Movie> moviesList = Arrays.asList(movies);
 
         int pageSize = pageable.getPageSize();

@@ -1,5 +1,7 @@
 package uah.es.moviesfrontend.controller;
 
+import java.util.Arrays;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -11,6 +13,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import uah.es.moviesfrontend.model.Movie;
 import uah.es.moviesfrontend.paginator.PageRender;
+import uah.es.moviesfrontend.service.ICriticsService;
 import uah.es.moviesfrontend.service.IMoviesService;
 
 @Controller
@@ -19,6 +22,9 @@ public class MoviesController {
 
     @Autowired
     IMoviesService moviesService;
+
+    @Autowired
+    ICriticsService criticsService;
 
     @GetMapping("/new")
     public String nuevo(Model model) {
@@ -47,6 +53,7 @@ public class MoviesController {
     @GetMapping("/details/{id}")
     public String findMovieById(Model model, @PathVariable("id") Integer id) {
         Movie movie = moviesService.findMovieById(id);
+        movie.setCritics(Arrays.asList(criticsService.findCriticsByMovieId(movie.getId())));
         System.out.println(movie.getImage());
         model.addAttribute("movie", movie);
         return "movies/detailsMovie";

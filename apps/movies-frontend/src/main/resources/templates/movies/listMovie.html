@@ -36,8 +36,8 @@
                     <td th:text="${movie.genre}"></td>
                     <td>
                         <a th:href="@{/movies/details/{id}  (id=${movie.id})  }" th:text="'detalles'" class="btn btn-primary btn-sm" role="button" title="Detalles de la película."><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>
-                        <a th:href="@{/movies/update/{id}  (id=${movie.id})  }" th:text="'editar'" class="btn btn-success btn-sm" role="button" title="Editar la película."><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>
-                        <a th:href="@{/movies/delete/{id}  (id=${movie.id})   }" th:text="'borrar'" onclick="return confirm('¿Estas seguro?')" class="btn btn-danger btn-sm" role="button" title="Eliminar la película."><i class="fas fa-trash" aria-hidden="true"></i></a>
+                        <a th:href="@{/movies/update/{id}  (id=${movie.id})  }" th:text="'editar'" class="btn btn-success btn-sm" role="button" title="Editar la película."><i class="fas fa-pencil-alt" aria-hidden="true" sec:authorize="hasRole('ROLE_ADMIN')"></i></a>
+                        <a th:href="@{/movies/delete/{id}  (id=${movie.id})   }" th:text="'borrar'" onclick="return confirm('¿Estas seguro?')" class="btn btn-danger btn-sm" role="button" title="Eliminar la película." sec:authorize="hasRole('ROLE_ADMIN')"><i class="fas fa-trash" aria-hidden="true"></i></a>
                     </td>
                 </tr>
 

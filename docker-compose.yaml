@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-  frontend:
+  movies-frontend:
     build:
       context: ./apps/movies-frontend
       dockerfile: Dockerfile
@@ -9,23 +9,58 @@ services:
       - "4000:4000"
     environment:
       - PORT=4000
-      - BACKEND_URL=http://backend:3000
+      - MOVIES_API_URL=http://gateway:8090/api/movies
+      - SECURITY_API_URL=http://gateway:8090/api/security
     depends_on:
-      - backend
+      - gateway
 
-  backend:
+  gateway:
     build:
-      context: ./apps/movies-backend
+      context: ./apps/gateway
+      dockerfile: Dockerfile
+    ports:
+      - "8090:8090"
+    environment:
+      - PORT=8090
+      - MOVIES_API_URL=http://movies-api:3000
+      - SECURITY_API_URL=http://security-api:3001
+      - EUREKA_URL=http://eureka-server:8761/eureka
+    depends_on:
+      - movies-api
+      - security-api
+      - eureka-server
+
+  movies-api:
+    build:
+      context: ./apps/movies-api
       dockerfile: Dockerfile
     ports:
       - "3000:3000"
     environment:
       - PORT=3000
-      - DB_CONNECTION_URL=jdbc:mysql://db:3306/movies_db?useSSL=false&serverTimezone=Europe/Madrid&allowPublicKeyRetrieval=true
+      - DB_CONNECTION_URL=jdbc:mysql://db-movies:3306/movies_db?useSSL=false&serverTimezone=Europe/Madrid&allowPublicKeyRetrieval=true
       - DB_USER=root
       - DB_PASS=root
+      - EUREKA_URL=http://eureka-server:8761/eureka
     depends_on:
       - db-movies
+      - eureka-server
+
+  security-api:
+    build:
+      context: ./apps/security-api
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3001"
+    environment:
+      - PORT=3001
+      - DB_CONNECTION_URL=jdbc:mysql://db-security:3306/security_db?useSSL=false&serverTimezone=Europe/Madrid&allowPublicKeyRetrieval=true
+      - DB_USER=root
+      - DB_PASS=root
+      - EUREKA_URL=http://eureka-server:8761/eureka
+    depends_on:
+      - db-security
+      - eureka-server
 
   db-movies:
     image: mysql:8.0
@@ -38,5 +73,26 @@ services:
       - db-movies-data:/var/lib/mysql
       - ./db-movies-scripts:/docker-entrypoint-initdb.d
 
+  db-security:
+    image: mysql:8.0
+    ports:
+      - "3307:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=security_db
+    volumes:
+      - db-security-data:/var/lib/mysql
+      - ./db-security-scripts:/docker-entrypoint-initdb.d
+
+  eureka-server:
+    build:
+      context: ./apps/eureka-server
+      dockerfile: Dockerfile
+    ports:
+      - "8761:8761"
+    environment:
+      - PORT=8761
+      - EUREKA_URL=http://eureka-server:8761/eureka
 volumes:
   db-movies-data:
+  db-security-data:

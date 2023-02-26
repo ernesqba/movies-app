@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>App de películas</title>
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <h2 class="text-secondary border border-success border-top-0 border-left-0 border-right-0">Búsqueda de Críticas</h2>
+    <form th:action="@{/critics/user}" method="get">
+        <div class="mb-3">
+            <label for="username" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="username" name="username"
+                   placeholder="Escriba el nombre del usuario">
+        </div>
+        <button type="submit" class="btn btn-success">Buscar por Nombre</button>
+    </form>
+    <hr>
+    <form th:action="@{/critics/movie}" method="get">
+        <div class="mb-3">
+            <label for="moviesId" class="form-label">Película</label>
+            <select class="form-select" name="moviesId" id="moviesId">
+                <option th:each="movie : ${movies}" th:value="${movie.getId()}" th:text="${movie.getTitle()}"></option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-success">Buscar por película</button>
+    </form>
+
+    <hr>
+    <a class="btn btn-primary" role="button" th:href="@{/}">Ir a Inicio</a>
+</div>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script th:src="@{/js/bootstrap.min.js}"></script>
+
+</body>
+</html>

@@ -7,6 +7,8 @@ import uah.es.moviesfrontend.model.Movie;
 
 public interface IMoviesService {
 
+    Movie[] findAll();
+
     Page<Movie> findAll(Pageable pageable);
 
     Movie findMovieById(Integer id);
