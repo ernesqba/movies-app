@@ -1,6 +1,6 @@
--- MySQL dump 10.13  Distrib 8.0.31, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.32, for Linux (x86_64)
 --
--- Host: localhost    Database: movies_db
+-- Host: 127.0.0.1    Database: movies_db
 -- ------------------------------------------------------
 -- Server version	8.0.31
 
@@ -24,11 +24,11 @@ DROP TABLE IF EXISTS `actors`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `actors` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8mb3_spanish_ci NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci NOT NULL,
   `birth_date` date NOT NULL,
-  `birth_country` varchar(255) COLLATE utf8mb3_spanish_ci NOT NULL,
+  `birth_country` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,7 +37,7 @@ CREATE TABLE `actors` (
 
 LOCK TABLES `actors` WRITE;
 /*!40000 ALTER TABLE `actors` DISABLE KEYS */;
-INSERT INTO `actors` VALUES (1,'Tom Hanks','1962-08-28','USA');
+INSERT INTO `actors` VALUES (1,'Tom Hanks','1956-07-09','Estados Unidos'),(2,'Emma Watson','1990-04-15','Reino Unido'),(3,'Leonardo DiCaprio','1974-11-11','Estados Unidos'),(4,'Scarlett Johansson','1984-11-22','Estados Unidos'),(5,'Johnny Depp','1963-06-09','Estados Unidos');
 /*!40000 ALTER TABLE `actors` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -50,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-20 18:08:06
+-- Dump completed on 2023-02-26 13:04:17

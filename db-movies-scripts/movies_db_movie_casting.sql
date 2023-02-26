@@ -1,6 +1,6 @@
--- MySQL dump 10.13  Distrib 8.0.31, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.32, for Linux (x86_64)
 --
--- Host: localhost    Database: movies_db
+-- Host: 127.0.0.1    Database: movies_db
 -- ------------------------------------------------------
 -- Server version	8.0.31
 
@@ -31,7 +31,7 @@ CREATE TABLE `movie_casting` (
   KEY `constr_movie_casting_actor_fk` (`actor_id`),
   CONSTRAINT `constr_movie_casting_actor_fk` FOREIGN KEY (`actor_id`) REFERENCES `actors` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `constr_movie_casting_movie_fk` FOREIGN KEY (`movie_id`) REFERENCES `movies` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,7 +40,7 @@ CREATE TABLE `movie_casting` (
 
 LOCK TABLES `movie_casting` WRITE;
 /*!40000 ALTER TABLE `movie_casting` DISABLE KEYS */;
-INSERT INTO `movie_casting` VALUES (11,1,1),(12,1,1),(13,1,1),(14,1,1),(15,1,1);
+INSERT INTO `movie_casting` VALUES (16,1,1),(17,2,2),(18,3,3),(19,4,4),(20,5,5);
 /*!40000 ALTER TABLE `movie_casting` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -53,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-20 18:08:06
+-- Dump completed on 2023-02-26 13:04:17

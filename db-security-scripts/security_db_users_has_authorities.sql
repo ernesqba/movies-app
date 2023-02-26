@@ -16,31 +16,31 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `Users_has_Authorities`
+-- Table structure for table `users_has_authorities`
 --
 
-DROP TABLE IF EXISTS `Users_has_Authorities`;
+DROP TABLE IF EXISTS `users_has_authorities`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Users_has_Authorities` (
+CREATE TABLE `users_has_authorities` (
   `users_id` int NOT NULL,
   `authorities_id` int NOT NULL,
   PRIMARY KEY (`users_id`,`authorities_id`),
   KEY `fk_Users_has_Authorities_Authorities1_idx` (`authorities_id`),
   KEY `fk_Users_has_Authorities_Users1_idx` (`users_id`),
-  CONSTRAINT `fk_Users_has_Authorities_Authorities1` FOREIGN KEY (`authorities_id`) REFERENCES `Authorities` (`id`),
-  CONSTRAINT `fk_Users_has_Authorities_Users1` FOREIGN KEY (`users_id`) REFERENCES `Users` (`id`)
+  CONSTRAINT `fk_Users_has_Authorities_Authorities1` FOREIGN KEY (`authorities_id`) REFERENCES `authorities` (`id`),
+  CONSTRAINT `fk_Users_has_Authorities_Users1` FOREIGN KEY (`users_id`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Users_has_Authorities`
+-- Dumping data for table `users_has_authorities`
 --
 
-LOCK TABLES `Users_has_Authorities` WRITE;
-/*!40000 ALTER TABLE `Users_has_Authorities` DISABLE KEYS */;
-INSERT INTO `Users_has_Authorities` VALUES (1,1),(6,2),(7,2),(8,2),(9,2),(10,2);
-/*!40000 ALTER TABLE `Users_has_Authorities` ENABLE KEYS */;
+LOCK TABLES `users_has_authorities` WRITE;
+/*!40000 ALTER TABLE `users_has_authorities` DISABLE KEYS */;
+INSERT INTO `users_has_authorities` VALUES (1,1),(2,1),(15,1),(3,2);
+/*!40000 ALTER TABLE `users_has_authorities` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -52,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-01-31 23:13:10
+-- Dump completed on 2023-02-26 13:04:45

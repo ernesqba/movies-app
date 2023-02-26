@@ -1,6 +1,6 @@
--- MySQL dump 10.13  Distrib 8.0.31, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.32, for Linux (x86_64)
 --
--- Host: localhost    Database: movies_db
+-- Host: 127.0.0.1    Database: movies_db
 -- ------------------------------------------------------
 -- Server version	8.0.31
 
@@ -24,14 +24,14 @@ DROP TABLE IF EXISTS `movies`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `movies` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `title` varchar(255) COLLATE utf8mb3_spanish_ci NOT NULL,
+  `title` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci NOT NULL,
   `year` int NOT NULL,
   `length` int NOT NULL,
-  `country` varchar(255) COLLATE utf8mb3_spanish_ci NOT NULL,
-  `directed_by` varchar(255) COLLATE utf8mb3_spanish_ci NOT NULL,
-  `genre` varchar(255) COLLATE utf8mb3_spanish_ci NOT NULL,
-  `synopsis` text COLLATE utf8mb3_spanish_ci NOT NULL,
-  `image` varchar(255) COLLATE utf8mb3_spanish_ci DEFAULT NULL,
+  `country` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci NOT NULL,
+  `directed_by` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci NOT NULL,
+  `genre` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci NOT NULL,
+  `synopsis` text CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci NOT NULL,
+  `image` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -42,7 +42,7 @@ CREATE TABLE `movies` (
 
 LOCK TABLES `movies` WRITE;
 /*!40000 ALTER TABLE `movies` DISABLE KEYS */;
-INSERT INTO `movies` VALUES (1,'Jocker',2010,120,'España','Robert A.','Suspenso','Arthur Fleck adora hacer reír a la gente, pero su carrera como comediante es un fracaso. El repudio social, la marginación y una serie de trágicos acontecimientos lo conducen por el sendero de la locura y, finalmente, cae en el mundo del crimen.','https://i.blogs.es/9fe2f3/philips_cinema_joker_500/450_1000.jpg'),(2,'pelicula de amortito',2020,190,'Cuba','Ernesto','Romance','El amortito de los tortolitos','http://localhost:3000'),(8,'title',2011,120,'España','Robert A.','Acción','synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis synopsis ','http://localhost:3000');
+INSERT INTO `movies` VALUES (1,'Forrest Gump',1994,142,'Estados Unidos','Robert Zemeckis','Drama','La vida de un hombre sencillo que logra grandes cosas en la vida.','https://cdn.sincroguia.tv/uploads/programs/f/o/r/forrest-gump-poster-415_SPA-61_V.jpg'),(2,'Harry Potter and the Philosopher\'s Stone',2001,152,'Reino Unido','Chris Columbus','Fantasía','Un joven mago descubre sus habilidades mágicas mientras asiste a una escuela de magia.','https://upload.wikimedia.org/wikipedia/en/7/7a/Harry_Potter_and_the_Philosopher%27s_Stone_banner.jpg'),(3,'The Departed',2006,151,'Estados Unidos','Martin Scorsese','Crimen','Un policía encubierto intenta atrapar a un jefe del crimen en Boston.','https://curiosavidaes.files.wordpress.com/2020/11/the_departed_movie-1.jpg'),(4,'Lost in Translation',2003,102,'Estados Unidos','Sofia Coppola','Comedia','Dos personas se encuentran en un hotel de Tokio y desarrollan una amistad inesperada.','https://smoda.elpais.com/wp-content/uploads/2018/08/Lost-in-translation.jpg'),(5,'Pirates of the Caribbean: The Curse of the Black Pearl',2003,143,'Estados Unidos','Gore Verbinski','Aventura','Un grupo de piratas buscan un tesoro mientras enfrentan a la tripulación de un barco maldito.','https://artwork-cdn.7static.com/static/img/sleeveart/00/004/553/0000455375_350.jpg');
 /*!40000 ALTER TABLE `movies` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -55,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-20 18:08:06
+-- Dump completed on 2023-02-26 13:04:17
