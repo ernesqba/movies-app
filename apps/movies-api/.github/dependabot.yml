@@ -1,0 +1,6 @@
+version: 2
+updates:
+  - package-ecosystem: "maven" # or "gradle" for Gradle projects
+    directory: "/"
+    schedule:
+      interval: "daily"
